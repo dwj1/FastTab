@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "FastTab 极速标签页切换器",
-  "version": "0.2.0",
-  "description": "零打字、零视觉寻路成本、毫秒级标签页盲切：Alt+Q 最近两标签横跳，Alt+E 按最近使用顺序遍历切换。",
+  "version": "0.3.0",
+  "description": "零打字、零视觉寻路成本、毫秒级标签页盲切：Alt+Q/Alt+E 左右环形切换，Alt+W 最近两标签横跳。",
   "minimum_chrome_version": "102",
   "permissions": ["storage"],
   "background": {
@@ -10,19 +10,26 @@
   },
   "options_page": "options.html",
   "commands": {
-    "toggle-mru": {
+    "toggle-right": {
       "suggested_key": {
         "default": "Alt+Q",
         "windows": "Alt+Q"
       },
-      "description": "切换到上一个使用的标签页"
+      "description": "切换到右侧相邻的标签页"
     },
-    "toggle-any": {
+    "toggle-left": {
       "suggested_key": {
         "default": "Alt+E",
         "windows": "Alt+E"
       },
-      "description": "按最近使用顺序切换到任意标签页"
+      "description": "切换到左侧相邻的标签页"
+    },
+    "toggle-mru": {
+      "suggested_key": {
+        "default": "Alt+W",
+        "windows": "Alt+W"
+      },
+      "description": "切换到上一个使用的标签页"
     }
   }
 }

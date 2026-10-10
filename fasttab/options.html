@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FastTab 设置</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 32px 24px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 20px; margin-bottom: 6px; }
+    .sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .card h2 { font-size: 15px; margin-bottom: 12px; }
+    .switch-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .switch-label { font-size: 14px; }
+    .switch-desc { color: var(--muted); font-size: 12px; margin-top: 4px; line-height: 1.6; }
+    .switch { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; inset: 0;
+      background: #cbd5e1;
+      border-radius: 999px;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 18px; height: 18px;
+      left: 3px; top: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .switch input:checked + .slider { background: var(--primary); }
+    .switch input:checked + .slider::before { transform: translateX(20px); }
+    button {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+    }
+    button:hover { opacity: 0.9; }
+    .kbd {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: Consolas, monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>FastTab 极速标签页切换器</h1>
+  <p class="sub">零打字、毫秒级标签页盲切。快捷键可在浏览器扩展页中自定义。</p>
+
+  <div class="card">
+    <h2>功能互换</h2>
+    <div class="switch-row">
+      <div>
+        <div class="switch-label">将 <span class="kbd">Alt+Q</span> 与 <span class="kbd">Alt+E</span> 功能对调</div>
+        <div class="switch-desc">开启后：<span class="kbd">Alt+Q</span> = 任意切换，<span class="kbd">Alt+E</span> = 最近两标签横跳</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="swapFunctions">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>快捷键设置</h2>
+    <p class="switch-desc" style="margin-bottom: 12px">如需修改默认键位（<span class="kbd">Alt+Q</span> / <span class="kbd">Alt+E</span>），请前往浏览器扩展快捷键设置页。</p>
+    <button id="openShortcuts">打开浏览器快捷键设置</button>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
